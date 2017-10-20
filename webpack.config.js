@@ -2,6 +2,7 @@ var path = require("path");
 var HandlebarsPlugin = require("handlebars-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -10,7 +11,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'assets/[name].[hash:7].js'
+    filename: '[name].[hash:7].js'
   },
 
   module: {
@@ -29,6 +30,13 @@ module.exports = {
           fallback: "style-loader",
           use: "css-loader!sass-loader",
         }),
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '/assets/img/[name].[ext]'
+        }
       }
     ]
   },
@@ -38,6 +46,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: '!!handlebars-loader!src/index.handlebars'
     }),
+    new CopyWebpackPlugin([{
+      from: './src/assets/img/',
+      to: 'assets/img/',
+      copyUnmodified: true
+    }])
   ]
 
 };

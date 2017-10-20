@@ -1,1 +1,85 @@
+@import '~materialize-css/sass/components/color';
+$white: #FFF;
+$font-color: #212121;
+$primary-color: #01579b !default;
+$secondary-color: #4caf50 !default;
+// $primary-color-light: lighten($primary-color, 15%) !default;
+// $primary-color-dark: darken($primary-color, 15%) !default;
+//
+// $secondary-color: color("bistre", "base") !default;
+// $success-color: color("pale-goldenrod", "base") !default;
+
 @import '~materialize-css/sass/materialize';
+
+body,
+html {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+nav.ce-nav {
+  background: $white;
+  a {
+    color: $font-color;
+  }
+
+  .nav-item {
+    transition: box-shadow .3s ease;
+    &:hover {
+      box-shadow: inset 0 -3px 0 0 $secondary-color;
+    }
+  }
+}
+
+.hero {
+  position: relative;
+  background-image: url(/assets/img/tower1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $primary-color;
+    opacity: 0.7;
+  }
+
+  .actions {
+    margin-top: 20px;
+
+    button {
+      margin-right: 40px;
+    }
+  }
+
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+
+    h1, h2 {
+      color: $white;
+      font-weight: 300;
+    }
+
+    h1 {
+      font-size: 50px;
+      padding: 0;
+      margin: 0;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin: 0;
+    }
+  }
+
+}
