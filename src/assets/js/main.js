@@ -1,2 +1,3 @@
-console.log('hey')
-let a = 1 + 1;
+import '../css/styles.scss'
+
+console.log('loaded');
