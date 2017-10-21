@@ -16,6 +16,11 @@ html {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 nav.ce-nav {
   background: $white;
   a {
