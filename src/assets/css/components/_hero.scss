@@ -1,0 +1,74 @@
+.hero {
+  position: relative;
+  background-image: url($header-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+
+  @media(max-width: $small-screen-up) {
+    height: calc(100vh - 56px); // Subtract the height of the header
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $primary-color;
+    opacity: 0.7;
+  }
+
+  .actions {
+    margin-top: 20px;
+
+    a {
+      margin-right: 40px;
+
+      @media(max-width: $small-screen-up) {
+        margin: 0;
+
+        &:first-child {
+          margin-right: 10px;
+        }
+
+        &:last-child {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+
+    @media(max-width: $small-screen-up) {
+      text-align: center;
+      left: auto;
+    }
+
+    h1, h2 {
+      color: $white;
+      font-weight: 300;
+    }
+
+    h1 {
+      font-size: 50px;
+      padding: 0;
+      margin: 0;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin: 0;
+    }
+  }
+
+}
