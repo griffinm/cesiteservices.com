@@ -3,6 +3,8 @@ var HandlebarsPlugin = require("handlebars-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -28,8 +30,8 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: "css-loader!sass-loader",
-        }),
+          use: "css-loader!postcss-loader!sass-loader"
+        })
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -50,7 +52,10 @@ module.exports = {
       from: './src/assets/img/',
       to: 'assets/img/',
       copyUnmodified: true
-    }])
+    }]),
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: { discardComments: { removeAll: true } }
+    })
   ]
 
 };
