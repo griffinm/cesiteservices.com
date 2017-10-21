@@ -1,15 +1,19 @@
+
+// Colors
 @import '~materialize-css/sass/components/color';
 $white: #FFF;
 $font-color: #212121;
 $primary-color: #01579b !default;
 $secondary-color: #4caf50 !default;
-// $primary-color-light: lighten($primary-color, 15%) !default;
-// $primary-color-dark: darken($primary-color, 15%) !default;
-//
-// $secondary-color: color("bistre", "base") !default;
-// $success-color: color("pale-goldenrod", "base") !default;
 
+// Images
+$header-image: '/assets/img/tower1.jpg';
+
+// Vendor CSS
 @import '~materialize-css/sass/materialize';
+
+// Components
+@import './components/nav';
 
 body,
 html {
@@ -21,23 +25,9 @@ html {
   margin: 0 auto;
 }
 
-nav.ce-nav {
-  background: $white;
-  a {
-    color: $font-color;
-  }
-
-  .nav-item {
-    transition: box-shadow .3s ease;
-    &:hover {
-      box-shadow: inset 0 -3px 0 0 $secondary-color;
-    }
-  }
-}
-
 .hero {
   position: relative;
-  background-image: url(/assets/img/tower1.jpg);
+  background-image: url($header-image);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

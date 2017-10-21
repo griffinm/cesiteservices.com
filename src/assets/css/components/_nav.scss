@@ -1,0 +1,38 @@
+nav.ce-nav {
+  background: $white;
+  a {
+    color: $font-color;
+  }
+
+  .nav-item {
+    transition: box-shadow .3s ease;
+    &:hover {
+      box-shadow: inset 0 -3px 0 0 $secondary-color;
+    }
+  }
+}
+
+ul.ce-side-nav {
+  li.side-nav-header {
+    background-image: url($header-image);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 175px;
+    padding: 90px 10px 10px 10px;
+    line-height: 30px;
+
+    .side-nav-brand {
+      font-size: 26px;
+      display: block;
+    }
+
+    .side-nav-quick-contact {
+      a {
+        padding: 0;
+        color: $white;
+        font-size: 20px;
+      }
+    }
+  }
+}

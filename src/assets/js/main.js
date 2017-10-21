@@ -1,3 +1,6 @@
 import '../css/styles.scss'
+import 'materialize-css'
 
-console.log('loaded');
+$(document).ready(function() {
+  $(".button-collapse").sideNav();
+})
